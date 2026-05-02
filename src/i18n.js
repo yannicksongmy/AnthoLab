@@ -28,23 +28,23 @@ export const translations = {
     },
 
     about: {
-      title: "We offer quality services for your success",
-      description: "AnthoLab works from Tunisia, serving the whole world.",
-      mission: "Provide neat and high quality work.",
-      vision: "Be your trusted partner."
+      title: "Quality services, wherever you are in the world",
+      description: "Based in Tunisia, we work for students, high school students and professionals worldwide. Your success is our priority.",
+      mission: "Deliver neat, rigorous work that meets your requirements..",
+      vision: "Become the trusted partner of your academic and professional success."
     },
 
     cta:{
-      t1:"Subscribe quickly to the",
-      t2:"Plan",
-      t3:"that suits you best",
-      description:"We offer plan tailored to all needs and budgets, so that everyone can benefit from our quality services.",
-      okay:"Get in touch now"
+      t1:"Get a free",
+      t2:"Quote",
+      t3:"tailored to your budget",
+      description:"Our rates adapt to your country and your project. Describe your need and receive a response within 24 hours.",
+      okay:"Request a quote on WhatsApp"
     },
 
     features:{
       title: "Contact us",
-      text:"We collaborate remotely on your projects, anywhere in the world.",
+      text:"We collaborate remotely on your projects, anywhere in the world",
       form:{
         nom:"Your name",
         mail:"Your email",
@@ -113,22 +113,22 @@ export const translations = {
 
     services: {
       title: "Ce que nous offrons",
-      description: "Etudiants, lycéens, professionnels, nous vous accompagnons à chaque étape !",
+      description: "Étudiants, lycéens, professionnels, nous vous accompagnons à chaque étape !",
     },
 
     about: {
-      title: "Nous proposons des services de qualité pour votre réussite",
-      description: "AnthoLab travaille depuis la Tunisie, au service du monde entier.",
-      mission: "Fournir un travail soigné et de haute qualité.",
-      vision: "Être votre partenaire de confiance."
+      title: "Des services de qualité, où que vous soyez dans le monde",
+      description: "Basés en Tunisie, nous travaillons au service des étudiants, lycéens et professionnels du monde entier. Votre réussite est notre priorité.",
+      mission: "Livrer un travail soigné, rigoureux et conforme à vos exigences.",
+      vision: "Devenir le partenaire de confiance de votre réussite académique et professionnelle."
     },
 
     cta:{
-      t1:"Souscrivez rapidement au",
-      t2:"Forfait",
-      t3:"qui vous convient le mieux",
-      description:"Nous offrons des forfaits adaptés à tous les besoins et budgets, pour que chacun puisse bénéficier de nos services de qualité.",
-      okay:"Entrez en contact maintenant"
+      t1:"Obtenez un",
+      t2:"Devis gratuit",
+      t3:"adapté à votre budget",
+      description:"Nos tarifs s'adaptent à votre pays et à votre projet. Décrivez-nous votre besoin et recevez une réponse sous 24h.",
+      okay:"Demander un devis sur WhatsApp"
     },
 
     features:{
