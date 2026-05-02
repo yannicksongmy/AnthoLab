@@ -1,0 +1,66 @@
+---
+import Container from "../shared/Container.astro";
+import Title from "../shared/Title.astro";
+import Paragraph from "../shared/Paragraph.astro";
+import { translations } from "../../i18n";
+
+const { lang = "en" } = Astro.props;
+const t = translations[lang];
+---
+
+<section id="faq">
+  <Container className="space-y-10 md:space-y-12">
+    <div class="text-center max-w-3xl mx-auto space-y-4">
+      <Title>{t.faq.title}</Title>
+      <Paragraph>{t.faq.subtitle}</Paragraph>
+    </div>
+
+    <div class="max-w-3xl mx-auto space-y-4">
+      {t.faq.items.map((item, index) => (
+        <div class="rounded-2xl border border-box-border bg-box-bg shadow-sm shadow-box-shadow overflow-hidden">
+          <button
+            class="faq-btn w-full flex justify-between items-center px-6 py-4 text-left font-semibold text-heading-1 hover:text-primary transition"
+            data-index={index}
+          >
+            <span>{item.question}</span>
+            <svg
+              class="faq-icon w-5 h-5 flex-shrink-0 transition-transform duration-300"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+            </svg>
+          </button>
+          <div class="faq-answer hidden px-6 pb-4">
+            <Paragraph className="!text-sm">{item.answer}</Paragraph>
+          </div>
+        </div>
+      ))}
+    </div>
+  </Container>
+</section>
+
+<script>
+  const buttons = document.querySelectorAll('.faq-btn');
+
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const answer = btn.nextElementSibling;
+      const icon = btn.querySelector('.faq-icon');
+      const isOpen = !answer.classList.contains('hidden');
+
+      // Ferme tous les autres
+      document.querySelectorAll('.faq-answer').forEach(a => a.classList.add('hidden'));
+      document.querySelectorAll('.faq-icon').forEach(i => i.classList.remove('rotate-180'));
+
+      // Ouvre celui cliqué si il était fermé
+      if (!isOpen) {
+        answer.classList.remove('hidden');
+        icon.classList.add('rotate-180');
+      }
+    });
+  });
+</script>

@@ -6,28 +6,29 @@ import { translations } from "../../i18n";
 
 const { lang = "en" } = Astro.props;
 const t = translations[lang];
+const base = import.meta.env.BASE_URL;
 
 const navItems = [
     {
-        href:"#",
+        href:`${base}/${lang}`,
         text:t.nav.home 
     },
     {
-        href:"#services",
+        href:`${base}/${lang}#services`,
         text:t.nav.services
     },
     {
-        href:"#about-us",
+        href:`${base}/${lang}#about-us`,
         text:t.nav.about
     },
     {
-        href:"#contact",
+        href:`${base}/${lang}#contact`,
         text:t.nav.contact
     },
 ]
 ---
 
-<header class="absolute inset-x-0 top-0 z-50 py-6">
+<header data-base={import.meta.env.BASE_URL} class="fixed inset-x-0 top-0 z-50 py-6 bg-body/80 backdrop-blur-md border-b border-box-border">
     <Container>
         <nav class="w-full flex justify-between gap-6 relative">
             <!-- logo -->
@@ -46,7 +47,7 @@ const navItems = [
             </div>
 
             <div data-nav-overlay aria-hidden="true" class="fixed hidden inset-0 lg:!hidden bg-box-bg bg-opacity-50 backdrop-filter backdrop-blur-xl"></div>
-            <div data-navbar class="flex h-0 overflow-hidden lg:!h-auto lg:scale-y-100 duration-300 ease-linear flex-col gap-y-6 gap-x-4 lg:flex-row w-full lg:justify-between lg:items-center absolute lg:relative top-full lg:top-0 bg-body lg:bg-transparent border-x border-x-box-border lg:border-x-0">
+            <div data-navbar class="flex h-0 overflow-hidden lg:!h-auto lg:scale-y-100 duration-300 ease-linear flex-col gap-y-6 gap-x-4 lg:flex-row w-full lg:justify-between lg:items-center absolute lg:relative top-full lg:top-0 bg-[rgb(var(--color-bg))] lg:bg-transparent border-x border-x-box-border lg:border-x-0">
                 <ul class="border-t border-box-border lg:border-t-0 px-6 lg:px-0 pt-6 lg:pt-0 flex flex-col lg:flex-row gap-y-4 gap-x-3 text-lg text-heading-2 w-full lg:justify-start lg:items-center">
                     {navItems.map(item=>{
                         return <Navitem {...item}/>
@@ -55,7 +56,7 @@ const navItems = [
                 </ul>
 
                 <div class="lg:min-w-max flex items-center sm:w-max w-full pb-6 lg:pb-0 border-b border-box-bg lg:border-0 px-6 lg:px-0">
-                    <BtnLink text={t.hero.button2} href="#cta" className="flex justify-center w-full sm:w-max" variant="primary"/>
+                    <BtnLink text={t.hero.button2} href={`${base}/${lang}#cta`}, className="flex justify-center w-full sm:w-max" variant="primary"/>
                 </div>
             </div>
 
@@ -94,7 +95,8 @@ const navItems = [
         const label = document.getElementById('lang-label');
         const flag = document.getElementById('lang-flag');
 
-        const base = '/AnthoLab';
+        const header = document.querySelector('header');
+        const base = header.dataset.base;
 
         function updateLanguage() {
             const path = window.location.pathname;
@@ -114,9 +116,9 @@ const navItems = [
             const path = window.location.pathname;
 
             if (path.startsWith(base + '/fr')) {
-                window.location.href = base + '/en';
+                window.location.href = path.replace(base + '/fr', base + '/en');
             } else {
-                window.location.href = base + '/fr';
+                window.location.href = path.replace(base + '/en', base + '/fr');
             }
         });
     </script>

@@ -7,62 +7,59 @@ import { translations } from "../../i18n";
 
 const { lang = "en" } = Astro.props;
 const t = translations[lang];
+const base = import.meta.env.BASE_URL;
 const footerNav1 = [
     {
         itemText:t.footer.Solutions.consulting,
-        itemLink:"#"
+        itemLink:`${base}/${lang}#services`
     },
     {
         itemText:t.footer.Solutions.design,
-        itemLink:"#"
+        itemLink:`${base}/${lang}#services`
     },
     {
         itemText:t.footer.Solutions.writing,
-        itemLink:"#"
+        itemLink:`${base}/${lang}#services`
     }
 ]
 
 const footerSupport = [
     {
-        itemText:t.footer.Support.help,
-        itemLink:"#"
-    },
-    {
         itemText:t.footer.Support.faq,
-        itemLink:"#"
+        itemLink:`${base}/${lang}/faq`
     },
     {
         itemText:t.footer.Support.contact,
-        itemLink:"#contact"
+        itemLink:`${base}/${lang}#contact`
     }
 ]
 
 const footerCompany = [
     {
         itemText:t.footer.Company.about,
-        itemLink:"#about-us"
+        itemLink:`${base}/${lang}#about-us`
     },
     {
         itemText:t.footer.Company.services,
-        itemLink:"#services"
+        itemLink:`${base}/${lang}#services`
     },
     {
         itemText:t.footer.Company.blogs,
-        itemLink:"#"
+        itemLink:`${base}/${lang}/history`
     }
 ]
 const footerLegal = [
     {
         itemText:t.footer.Legal.claim,
-        itemLink:"/#"
+        itemLink:`${base}/${lang}/legal`
     },
     {
         itemText:t.footer.Legal.privacy,
-        itemLink:"#"
+        itemLink:`${base}/${lang}/privacy`
     },
     {
         itemText:t.footer.Legal.terms,
-        itemLink:"#"
+        itemLink:`${base}/${lang}/terms`
     }
 ]
 ---
@@ -101,20 +98,38 @@ const footerLegal = [
         <div class="grid grid-cols-2 lg:grid-cols-3 lg:items-stretch gap-8 relative">
             <div class="col-span-2 lg:col-span-1 h-auto flex flex-col">
                 <div class="h-full">
-                    <a href="#" class="relative flex items-center gap-3">
-                        <div class="relative w-7 h-7 overflow-auto flex rounded-xl">
-                            <span class="absolute w-4 h-4 -top-1 -right-1 bg-green-500 rounded-md rotate-45"></span>
-                            <span class="absolute w-4 h-4 -bottom-1 -right-1 bg-[#FCDC58] rounded-md rotate-45"></span>
-                            <span class="absolute w-4 h-4 -bottom-1 -left-1 bg-primary rounded-md rotate-45"></span>
-                            <span class="absolute w-2 h-2 rounded-full bg-heading-1 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></span>
+                    <a href={`${base}/${lang}`} class="relative flex items-center gap-3">
+                        <div class="relative w-10 h-10 overflow-auto flex rounded-xl">
+                            <span class="absolute w-6 h-6 -top-1 -right-1 bg-green-500 rounded-md rotate-45"></span>
+                            <span class="absolute w-6 h-6 -bottom-1 -right-1 bg-[#FCDC58] rounded-md rotate-45"></span>
+                            <span class="absolute w-6 h-6 -bottom-1 -left-1 bg-primary rounded-md rotate-45"></span>
+                            <span class="absolute w-2 h-3 rounded-full bg-heading-1 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></span>
                         </div>
-                        <div class="inline-flex text-lg font-semibold text-heading-1">
-                            AnthoLab
+                        <div class="inline-flex text-2xl font-semibold text-heading-1">
+                            Antho<span class="text-primary">Lab</span>
                         </div>
                     </a>
-                    <Paragraph className={"mt-8"}>
+                    <Paragraph className={"mt-8 !text-sm"}>
                         {t.footer.description}
                     </Paragraph>
+                    <div class="mt-8 flex flex-col gap-3">
+                        <div class="flex items-center gap-3 text-heading-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-primary flex-shrink-0">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                            </svg>
+                            <a href="mailto:contact.antholab@gmail.com" class="text-sm hover:text-primary transition">
+                            contact.antholab@gmail.com
+                            </a>
+                        </div>
+
+                        <div class="flex items-center gap-3 text-heading-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-primary flex-shrink-0">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                            </svg>
+                            <span class="text-sm">{t.footer.location}</span>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- social links -->

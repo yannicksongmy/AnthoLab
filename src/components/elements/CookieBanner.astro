@@ -1,0 +1,121 @@
+---
+import { translations } from "../../i18n";
+const { lang = "en" } = Astro.props;
+const t = translations[lang];
+const base = import.meta.env.BASE_URL;
+---
+
+<div 
+  id="cookie-banner"
+  class="fixed bottom-0 left-0 right-0 z-50 hidden"
+>
+  <div class="bg-box-bg border-t border-box-border shadow-2xl">
+    <div class="max-w-4xl mx-auto p-6 flex flex-col gap-6">
+      
+      <!-- Titre + message -->
+      <div class="flex flex-col gap-2">
+        <h3 class="text-base font-semibold text-heading-1">{t.cookies.title}</h3>
+        <p class="text-sm text-heading-3">
+          {t.cookies.message}
+          <a href={`${base}${lang}/privacy`} class="text-primary underline hover:opacity-80 transition ml-1">
+            {t.cookies.learnMore}
+          </a>
+        </p>
+      </div>
+
+      <!-- Catégories de cookies -->
+      <div class="flex flex-col sm:flex-row gap-4">
+        
+        <!-- Cookies essentiels -->
+        <div class="flex-1 flex items-start gap-3 p-4 rounded-xl border border-box-border bg-[rgb(var(--color-bg))]">
+          <div class="flex-1">
+            <div class="flex items-center justify-between gap-2">
+              <span class="text-sm font-semibold text-heading-1">{t.cookies.essential}</span>
+              <span class="text-xs text-primary font-medium px-2 py-0.5 rounded-full border border-primary">
+                {lang === 'fr' ? 'Toujours actifs' : 'Always active'}
+              </span>
+            </div>
+            <p class="text-xs text-heading-3 mt-1">{t.cookies.essentialDesc}</p>
+          </div>
+        </div>
+
+        <!-- Cookies analytiques -->
+        <div class="flex-1 flex items-start gap-3 p-4 rounded-xl border border-box-border bg-[rgb(var(--color-bg))]">
+          <div class="flex-1">
+            <div class="flex items-center justify-between gap-2">
+              <span class="text-sm font-semibold text-heading-1">{t.cookies.analytics}</span>
+              <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" id="analytics-toggle" class="sr-only peer" />
+                <div class="w-9 h-5 bg-gray-300 peer-focus:outline-none rounded-full peer peer-checked:bg-primary transition-all peer-checked:after:translate-x-4 after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all"></div>
+              </label>
+            </div>
+            <p class="text-xs text-heading-3 mt-1">{t.cookies.analyticsDesc}</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Boutons -->
+      <div class="flex flex-col sm:flex-row items-center justify-end gap-3">
+        <button 
+          id="cookie-essential"
+            class="w-full sm:w-auto px-5 py-2.5 text-sm rounded-full border border-box-border relative overflow-hidden duration-300 ease-linear after:absolute after:inset-x-0 after:aspect-square after:scale-0 after:opacity-70 after:origin-center after:duration-300 after:ease-linear after:rounded-full after:top-0 after:left-0 after:bg-gray-200 dark:after:bg-gray-800 hover:after:opacity-100 hover:after:scale-[2.5]"
+        >
+          <span class="relative text-white z-10">{t.cookies.acceptEssential}</span>
+        </button>
+        <button 
+          id="cookie-accept-all"
+          class="w-full sm:w-auto px-5 py-2.5 text-sm rounded-full bg-primary border border-transparent relative overflow-hidden duration-300 ease-linear after:absolute after:inset-x-0 after:aspect-square after:scale-0 after:opacity-70 after:origin-center after:duration-300 after:ease-linear after:rounded-full after:top-0 after:left-0 after:bg-[#172554] hover:after:opacity-100 hover:after:scale-[2.5]"
+        >
+          <span class="relative text-white z-10">{t.cookies.acceptAll}</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  const banner = document.getElementById('cookie-banner');
+  const acceptAllBtn = document.getElementById('cookie-accept-all');
+  const essentialBtn = document.getElementById('cookie-essential');
+  const analyticsToggle = document.getElementById('analytics-toggle') as HTMLInputElement;
+
+  function loadGA() {
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-XJ07PB54DK';
+    document.head.appendChild(script);
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){(window.dataLayer as any[]).push(arguments);}
+    (window as any).gtag = gtag;
+    (window as any).gtag('js', new Date());
+    (window as any).gtag('config', 'G-XJ07PB54DK');
+  }
+
+  // Affiche la bannière si pas encore de choix
+  if (!localStorage.getItem('cookieConsent')) {
+    banner.classList.remove('hidden');
+  }
+
+  // Si analytics déjà accepté, coche le toggle
+  if (localStorage.getItem('cookieAnalytics') === 'accepted') {
+    analyticsToggle.checked = true;
+    loadGA();
+  }
+
+  // Tout accepter
+  acceptAllBtn?.addEventListener('click', () => {
+    localStorage.setItem('cookieConsent', 'done');
+    localStorage.setItem('cookieAnalytics', 'accepted');
+    banner.classList.add('hidden');
+    loadGA();
+  });
+
+  // Essentiels uniquement
+  essentialBtn?.addEventListener('click', () => {
+    localStorage.setItem('cookieConsent', 'done');
+    localStorage.setItem('cookieAnalytics', 'refused');
+    banner.classList.add('hidden');
+  });
+</script>

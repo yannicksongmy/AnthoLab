@@ -1,0 +1,40 @@
+---
+import Container from "../shared/Container.astro";
+import Title from "../shared/Title.astro";
+import Paragraph from "../shared/Paragraph.astro";
+import { translations } from "../../i18n";
+
+const { lang = "en" } = Astro.props;
+const t = translations[lang];
+const base = import.meta.env.BASE_URL;
+---
+
+<section id="legal">
+  <Container className="space-y-10 md:space-y-12">
+    <div class="text-center max-w-3xl mx-auto space-y-4">
+      <Title>{t.legal.title}</Title>
+      <Paragraph>{t.legal.subtitle}</Paragraph>
+    </div>
+
+    <div class="max-w-3xl mx-auto divide-y divide-box-border">
+      {t.legal.sections.map((section) => (
+        <div class="flex flex-col gap-3 py-8">
+          <div class="flex items-center gap-3">
+            <span class="w-1 h-7 rounded-full bg-primary flex-shrink-0"></span>
+            <h2 class="text-xl font-semibold text-heading-1">{section.title}</h2>
+          </div>
+          <p class="text-sm text-heading-3 pl-4">
+            {section.content}
+            {section.privacyLink && (
+              
+                <a href={`${base}/${lang}/privacy`}
+                class="text-primary underline hover:opacity-80 transition">
+                {t.legal.privacyLinkText}
+              </a>
+            )}
+          </p>
+        </div>
+      ))}
+    </div>
+  </Container>
+</section>

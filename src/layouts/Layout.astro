@@ -1,6 +1,7 @@
 ---
 import Footer from "../components/elements/Footer.astro";
 import Navbar from "../components/elements/Navbar.astro";
+import CookieBanner from "../components/elements/CookieBanner.astro";
 
 export interface Props {
   title: string;
@@ -22,11 +23,25 @@ const { title, lang = "en" } = Astro.props;
       href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <script is:inline>
+      if (localStorage.getItem('cookieAnalytics') === 'accepted') {
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-XJ07PB54DK';
+        document.head.appendChild(script);
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', 'G-XJ07PB54DK');
+      }
+    </script>
   </head>
   <body class="overflow-hidden overflow-y-auto bg-body">
     <Navbar lang={lang} />
     <slot lang={lang}/>
     <Footer lang={lang}/>
+    <CookieBanner lang={lang} />
   </body>
   <script>
     const switchTheme = document.querySelector(
@@ -83,13 +98,15 @@ const { title, lang = "en" } = Astro.props;
           toggleMenu.setAttribute("data-open-nav", "true");
           overlayNav.setAttribute("data-is-visible", "true");
           document.body.classList.add("!overflow-y-hidden");
-		  navbar.style.height = `${navbar.scrollHeight}px`
+		      navbar.style.height = "100vh";
+          navbar.style.overflowY = "auto";
 
         }else{
 			toggleMenu.setAttribute("data-open-nav", "false");
         	overlayNav.setAttribute("data-is-visible", "false");
         	document.body.classList.remove("!overflow-y-hidden");
-		  	navbar.style.height = "0px"
+		  	navbar.style.height = "0px";
+        navbar.style.overflowY = "hidden";
 		}
 		
         
