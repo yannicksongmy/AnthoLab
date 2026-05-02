@@ -23,14 +23,14 @@ const t = translations[lang];
                 class=" w-auto left-1/2 -translate-x-1/2 absolute bottom-0 max-h-full" />
             </div>
         </div>
-        <div class="flex-1 flex midmd:w-7/12 lg:w-1/2 flex-col">
+        <div class="flex-1 flex midmd:w-7/12 lg:w-1/2 flex-col overflow-hidden">
             <Title>
                 {t.about.title}
             </Title>
             <Paragraph className="mt-8">
                 {t.about.description}
             </Paragraph>
-            <div class="pt-8 grid grid-cols-2 items-start gap-4 max-w-3xl md:max-w-[none] grid grid-cols-1 md:grid-cols-2">
+            <div class="pt-8 grid grid-cols-2 items-start gap-4 max-w-3xl md:max-w-[none] grid grid-cols-1 md:grid-cols-2 overflow-hidden">
                 <Info description={t.about.mission} title="Mission">
                     <span slot="icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 sm:w-5 sm:h-5">
