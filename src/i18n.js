@@ -50,7 +50,9 @@ export const translations = {
         mail:"Your email",
         subject:"Subject",
         text:"Your message",
-        submit:"Send"
+        submit:"Send",
+        success:"Message sent successfully!",
+        error:"An error has occurred, please try again."
       },
     },
 
@@ -137,7 +139,9 @@ export const translations = {
         mail:"Votre mail",
         subject:"Sujet",
         text:"Votre message",
-        submit:"Envoyer"
+        submit:"Envoyer",
+        success:"Message envoyé avec succès!",
+        error:"Une erreur est survenue, veuillez réessayer s'il vous plaît"
       },
     },
 

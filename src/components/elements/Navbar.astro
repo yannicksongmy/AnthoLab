@@ -58,50 +58,17 @@ const navItems = [
                     <BtnLink text={t.hero.button2} href="#cta" className="flex justify-center w-full sm:w-max" variant="primary"/>
                 </div>
             </div>
-            
-            <button id="lang-switch" class="outline-none flex items-center gap-2 rounded-full px-3 py-2 border bg-white text-black border-gray-300 dark:bg-black dark:text-white dark:border-gray-600 transition hover:scale-105 gap-0">
-
-                <span id="lang-flag" class="flex items-center">
-                    <img src="https://flagcdn.com/w20/gb.png" alt="EN" class="w-7 h-4">    
-                </span> 
-                <span id="lang-label" class="text-xs font-medium leading-none -ml-0.5">EN</span>
-
-                <span class="sr-only">Switch language</span>
-            </button>
-
-                <script>
-                    const btn = document.getElementById('lang-switch');
-                    const label = document.getElementById('lang-label');
-                    const flag = document.getElementById('lang-flag');
-
-                    const base = '/AnthoLab';
-
-                    function updateLanguage() {
-                        const path = window.location.pathname;
-
-                        if (path.startsWith(base + '/fr')) {
-                            label.textContent = 'FR';
-                            flag.innerHTML = '<img src="https://flagcdn.com/w20/fr.png" class="w-7 h-4" />';
-                        } else {
-                            label.textContent = 'EN';
-                            flag.innerHTML = '<img src="https://flagcdn.com/w20/gb.png" class="w-7 h-4" />';
-                        }
-                    }    
-                    
-                    updateLanguage();
-
-                    btn?.addEventListener('click', () => {
-                        const path = window.location.pathname;
-
-                        if (path.startsWith(base + '/fr')) {
-                        window.location.href = base + '/en';
-                        } else {
-                        window.location.href = base + '/fr';
-                        }
-                    });
-                </script>
 
             <div class="min-w-max flex items-center gap-x-3">
+                <button id="lang-switch" class="outline-none flex items-center gap-2 rounded-full px-3 py-2 border bg-white text-black border-gray-300 dark:bg-black dark:text-white dark:border-gray-600 transition hover:scale-105 gap-0">
+
+                    <span id="lang-flag" class="flex items-center">
+                        <img src="https://flagcdn.com/w20/gb.png" alt="EN" class="w-7 h-4">    
+                    </span> 
+                    <span id="lang-label" class="text-xs font-medium leading-none -ml-0.5">EN</span>
+
+                    <span class="sr-only">Switch language</span>
+                </button>
                 <button data-switch-theme class="outline-none flex relative text-heading-2 rounded-full p-2 lg:p-3 border border-box-border hover:scale-105">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 dark:flex hidden">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
@@ -122,4 +89,35 @@ const navItems = [
             </div>
         </nav>
     </Container>
+    <script>
+        const btn = document.getElementById('lang-switch');
+        const label = document.getElementById('lang-label');
+        const flag = document.getElementById('lang-flag');
+
+        const base = '/AnthoLab';
+
+        function updateLanguage() {
+            const path = window.location.pathname;
+
+            if (path.startsWith(base + '/fr')) {
+                label.textContent = 'FR';
+                flag.innerHTML = '<img src="https://flagcdn.com/w20/fr.png" class="w-7 h-4" />';
+            } else {
+                label.textContent = 'EN';
+                flag.innerHTML = '<img src="https://flagcdn.com/w20/gb.png" class="w-7 h-4" />';
+            }
+        }    
+                    
+        updateLanguage();
+
+        btn?.addEventListener('click', () => {
+            const path = window.location.pathname;
+
+            if (path.startsWith(base + '/fr')) {
+                window.location.href = base + '/en';
+            } else {
+                window.location.href = base + '/fr';
+            }
+        });
+    </script>
 </header>
