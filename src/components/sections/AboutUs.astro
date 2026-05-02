@@ -13,7 +13,7 @@ const t = translations[lang];
 <section id="about-us">
     <Container className="flex flex-col midmd:flex-row gap-10 lg:gap-12">
         <div class="max-w-md mx-auto midmd:max-w-none lg:mx-0  lg:pr-10 xl:pr-2 flex-1 flex w-11/12 midmd:w-5/12 lg:w-1/2 midmd:h-auto">
-            <div class="w-full h-80 sm:h-96 midmd:h-full relative">
+            <div class="w-full h-80 sm:h-96 midmd:h-[500px] relative">
                 <div class="absolute rotate-45 -left-5 md:-left-10 lg:-left-20 xl:-left-24 p-1 top-1/2 w-16 h-16 bg-gradient-to-br from-primary to-orange-400 blur-3xl opacity-50"></div>
                 <div class="absolute  p-1 -top-4 md:-top-10 right-0 w-20 h-20 bg-gradient-to-br from-primary to-orange-400 rounded-full blur-3xl opacity-60"></div>
                 
@@ -23,14 +23,14 @@ const t = translations[lang];
                 class=" w-auto left-1/2 -translate-x-1/2 absolute bottom-0 max-h-full" />
             </div>
         </div>
-        <div class="flex-1 flex midmd:w-7/12 lg:w-1/2 flex-col overflow-hidden">
+        <div class="flex-1 flex midmd:w-7/12 lg:w-1/2 flex-col">
             <Title>
                 {t.about.title}
             </Title>
             <Paragraph className="mt-8">
                 {t.about.description}
             </Paragraph>
-            <div class="pt-8 grid grid-cols-2 items-start gap-4 max-w-3xl md:max-w-[none] grid grid-cols-1 md:grid-cols-2 overflow-hidden">
+            <div class="pt-8 grid grid-cols-2 items-start gap-4 max-w-3xl md:max-w-[none] grid grid-cols-1 md:grid-cols-2">
                 <Info description={t.about.mission} title="Mission">
                     <span slot="icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 sm:w-5 sm:h-5">
