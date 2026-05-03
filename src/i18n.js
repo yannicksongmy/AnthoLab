@@ -5,7 +5,9 @@ export const translations = {
       description: "Together, let's turn your ideas into success.",
       placeholder: "Subscribe to our newsletter",
       button1: "Subscribe",
-      button2 : "Get started"
+      button2 : "Get started",
+      send:"You are now part of us!",
+      error:"An error has occurred, please try again."
     },
 
     nav: {
@@ -320,7 +322,9 @@ export const translations = {
       description: "Ensemble, transformons vos idées en réussite.",
       placeholder: "Abonnez-vous à nous",
       button1: "S'abonner",
-      button2 : "Commencer"
+      button2 : "Commencer",
+      send:"Abonnement réussi!",
+      error:"Une erreur est survenue, veuillez réessayer s'il vous plaît."
     },
 
     nav: {
