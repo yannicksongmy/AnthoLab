@@ -2,7 +2,7 @@ export const translations = {
   en: {
     hero: {
       title: "is the best ever.",
-      description: "Together, let's turn your ideas into success.",
+      description: "CV, reports, websites or tutoring, together, let's turn your ideas into success.",
       placeholder: "Subscribe to our newsletter",
       button1: "Subscribe",
       button2 : "Get started",
@@ -319,7 +319,7 @@ export const translations = {
   fr: {
     hero: {
       title: "est de loin la meilleure.",
-      description: "Ensemble, transformons vos idées en réussite.",
+      description: "CV, rapports, sites Web ou cours de soutien, ensemble, transformons vos idées en réussite.",
       placeholder: "Abonnez-vous à nous",
       button1: "S'abonner",
       button2 : "Commencer",
