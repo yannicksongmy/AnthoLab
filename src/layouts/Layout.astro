@@ -15,7 +15,10 @@ const { title, lang = "en" } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/public/logos/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/public/logos/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/public/logos/favicon-16x16.png">
+    <link rel="manifest" href="/public/logos/site.webmanifest">
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content="AnthoLab Solutions - Services académiques et digitaux : conception de sites web, rédaction de rapports de stage, CV académiques, cours de soutien en maths et informatique. À distance, partout dans le monde. CV, rapports, sites web ou cours de soutien, ensemble, transformons vos idées en réussite.">
     <title>AnthoLab Solutions - {title}</title>

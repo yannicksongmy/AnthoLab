@@ -71,7 +71,7 @@ export const translations = {
         blogs: "Our Story"
       },
       Solutions: {
-        title: "Solutions",
+        title: "Contact",
         consulting: "Training",
         design: "Design",
         writing: "Writing" 
@@ -80,7 +80,7 @@ export const translations = {
         title: "Support",
         help: "Help",
         faq: "FAQ",
-        contact: "Contact Us" 
+        contact: "Get My Quote" 
       },
       Legal: {
         title: "Legal",
@@ -388,7 +388,7 @@ export const translations = {
         blogs: "Notre histoire"
       },
       Solutions: {
-        title: "Solutions",
+        title: "Contact",
         marketing: "Marketing",
         consulting: "Formation",
         design: "Conception",
@@ -398,7 +398,7 @@ export const translations = {
         title: "Support",
         help: "Aide",
         faq: "FAQ",
-        contact: "Contactez-nous" 
+        contact: "Obtenir mon devis" 
       },
       Legal: {
         title: "Légal",
