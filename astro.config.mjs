@@ -5,7 +5,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://yannicksongmy.github.io/',
+  site: 'https://yannicksongmy.github.io/AnthoLab',
   base: '/AnthoLab',
   integrations: [sitemap()],
   vite: {
