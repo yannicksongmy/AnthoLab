@@ -19,6 +19,7 @@ const { title, lang = "en" } = Astro.props;
     <link rel="icon" type="image/png" sizes="32x32" href={`${import.meta.env.BASE_URL}/logos/favicon-32x32.png`}>
     <link rel="icon" type="image/png" sizes="16x16" href={`${import.meta.env.BASE_URL}logos/favicon-16x16.png`}>
     <link rel="manifest" href={`${import.meta.env.BASE_URL}/logos/site.webmanifest`}>
+    <link rel="canonical" href={`https://yannicksongmy.github.io${Astro.url.pathname}`} />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content="AnthoLab Solutions - Services académiques et digitaux : conception de sites web, rédaction de rapports de stage, CV académiques, cours de soutien en maths et informatique. À distance, partout dans le monde. CV, rapports, sites web ou cours de soutien, ensemble, transformons vos idées en réussite.CV, reports, websites or tutoring, together, let's turn your ideas into success.">
     <meta name="robots" content="index, follow" />
