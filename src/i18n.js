@@ -7,7 +7,7 @@ export const translations = {
       button1: "Subscribe",
       button2 : "Get started",
       send:"You are now part of us!",
-      error:"An error has occurred, please try again."
+      error:"An error occurred, please try again."
     },
 
     nav: {
@@ -54,7 +54,7 @@ export const translations = {
         text:"Your message",
         submit:"Send",
         success:"Message sent successfully!",
-        error:"An error has occurred, please try again."
+        error:"An error occurred, please try again."
       },
     },
 
