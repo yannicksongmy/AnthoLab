@@ -313,6 +313,26 @@ export const translations = {
       acceptAll: "Accept all",
       acceptEssential: "Accept essential only",
       learnMore: "Privacy Policy"
+    },
+
+    verify:{
+      title: "Certificate Verification",
+      subtitle: "Verify a Certificate",
+      message: "Enter the certificate number found on your AnthoLab Solutions training certificate to verify its authenticity",
+      Number: "Certificate Number",
+      submit: "Verify",
+      response1: "Certificate Found",
+      response2: "Please compare the information below with what is printed on the certificate",
+      delivery: "Issued by AnthoLab Solutions",
+      important1: "Important",
+      important2: "If the information displayed above does not match what is printed on the physical certificate (name, training title, or date), the document may have been tampered with. Please contact AnthoLab Solutions immediately at ",
+      response3: "Certificate Not Found",
+      response4 : "No certificate matches this number. If you believe this is an error, contact us at ",
+      response5: "Certificate Tampered",
+      Response6 : "This certificate number exists but the information has been modified. This document may be fraudulent.",
+      status: "Verifying certificate...",
+      text: "The certificate number is printed on your training certificate issued by AnthoLab Solutions.",
+      text2: "If you have any questions, contact us at "
     }
   },
 
@@ -631,6 +651,26 @@ export const translations = {
       acceptAll: "Tout accepter",
       acceptEssential: "Accepter uniquement les essentiels",
       learnMore: "politique de confidentialité"
+    },
+
+    verify:{
+      title: "Vérification d'Attestation",
+      subtitle: "Vérifier une attestation",
+      message: "Entrez le numéro d'attestation figurant sur votre attestation de formation AnthoLab Solutions pour vérifier son authenticité.",
+      Number: "Numéro d'attestation",
+      submit: "Vérifier",
+      response1: "Attestation trouvée",
+      response2: "Comparez les informations ci-dessous avec celles imprimées sur l'attestation",
+      delivery: "Délivré par AnthoLab Solutions",
+      important1: "Important",
+      important2: "Si les informations affichées ci-dessus ne correspondent pas à celles imprimées sur le certificat physique (nom, intitulé de la formation ou date), le document a peut-être été falsifié. Veuillez contacter AnthoLab Solutions immédiatement à ",
+      response3: "Attestation introuvable",
+      response4 : "Aucun certificat ne correspond à ce numéro. Si vous pensez qu'il s'agit d'une erreur, contactez-nous à ",
+      response5: "Attestation falsifiée",
+      Response6 : "Ce numéro d'attestation existe mais les informations ont été modifiées. Ce document est potentiellement frauduleux.",
+      status: "Vérification en cours...",
+      text: "Le numéro de certificat est imprimé sur votre attestation de formation AnthoLab Solutions.",
+      text2: "Pour toute question, contactez-nous à "
     }
   },
 };

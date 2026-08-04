@@ -1,0 +1,192 @@
+---
+import "../../styles/global.css"
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Verify Certificate - AnthoLab Solutions" lang="en">
+  <main class="flex flex-col gap-y-20 md:gap-y-32 overflow-hidden pt-32 pb-20">
+    <section class="max-w-2xl mx-auto w-full px-4">
+
+      <div class="text-center mb-10">
+        <div class="inline-flex items-center gap-2 bg-primary/10 text-primary text-sm font-medium px-4 py-2 rounded-full mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.955 11.955 0 01.06 11.81h-.06c0 6.626 5.373 12 12 12s12-5.374 12-12c0-3.259-1.294-6.217-3.388-8.432A11.968 11.968 0 0112 2.714z" />
+          </svg>
+          Certificate Verification
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-bold text-heading-1 mb-3">Verify a Certificate</h1>
+        <p class="text-heading-3 text-sm max-w-md mx-auto">
+          Enter the certificate number found on your AnthoLab Solutions training certificate to verify its authenticity
+        </p>
+      </div>
+
+      <div class="bg-box-bg border border-box-border rounded-2xl p-6 shadow-lg shadow-box-shadow mb-6">
+        <label class="block text-sm font-semibold text-heading-1 mb-2">Certificate Number</label>
+        <div class="flex gap-3">
+          <input
+            id="cert-input"
+            type="text"
+            placeholder="e.g. ANT-2026-001"
+            class="flex-1 px-4 py-3 rounded-xl border border-box-border bg-[rgb(var(--color-bg))] text-heading-1 text-sm outline-none focus:border-primary transition placeholder-heading-3"
+          />
+          <button
+            id="verify-btn"
+            class="px-6 py-3 rounded-xl bg-primary text-white text-sm font-semibold hover:opacity-90 transition"
+          >
+            Verify
+          </button>
+        </div>
+      </div>
+
+      <div id="result" class="hidden">
+
+        <!-- Valid -->
+        <div id="result-valid" class="hidden bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-800 rounded-2xl p-6">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-green-600 dark:text-green-400">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+              </svg>
+            </div>
+            <div>
+              <p class="font-bold text-green-700 dark:text-green-400 text-base">Certificate Found</p>
+              <p class="text-green-600 dark:text-green-500 text-xs">Please compare the information below with what is printed on the certificate</p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
+            <div class="bg-white dark:bg-green-950/50 rounded-xl p-4 border border-green-100 dark:border-green-800">
+              <p class="text-xs text-green-600 dark:text-green-500 font-medium mb-1">Certificate ID</p>
+              <p id="res-id" class="text-heading-1 font-bold text-sm"></p>
+            </div>
+            <div class="bg-white dark:bg-green-950/50 rounded-xl p-4 border border-green-100 dark:border-green-800">
+              <p class="text-xs text-green-600 dark:text-green-500 font-medium mb-1">Full Name</p>
+              <p id="res-name" class="text-heading-1 font-bold text-sm"></p>
+            </div>
+            <div class="bg-white dark:bg-green-950/50 rounded-xl p-4 border border-green-100 dark:border-green-800">
+              <p class="text-xs text-green-600 dark:text-green-500 font-medium mb-1">Training</p>
+              <p id="res-formation" class="text-heading-1 font-bold text-sm"></p>
+            </div>
+            <div class="bg-white dark:bg-green-950/50 rounded-xl p-4 border border-green-100 dark:border-green-800">
+              <p class="text-xs text-green-600 dark:text-green-500 font-medium mb-1">Date</p>
+              <p id="res-date" class="text-heading-1 font-bold text-sm"></p>
+            </div>
+          </div>
+
+          <!-- Fraud warning -->
+          <div class="bg-orange-50 dark:bg-orange-950/30 border border-orange-200 dark:border-orange-800 rounded-xl p-4 flex items-start gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+            </svg>
+            <p class="text-xs text-orange-700 dark:text-orange-400 leading-relaxed">
+              <span class="font-semibold">Important:</span> If the information displayed above does not match what is printed on the physical certificate (name, training title, or date), the document may have been tampered with. Please contact AnthoLab Solutions immediately at
+              <a href="mailto:contact.antholab@gmail.com" class="underline font-medium">contact.antholab@gmail.com</a>.
+            </p>
+          </div>
+
+          <div class="mt-4 pt-4 border-t border-green-200 dark:border-green-800 flex items-center gap-2">
+            <img src={`${import.meta.env.BASE_URL}/logos/logo_without_bg.png`} alt="AnthoLab" class="h-6 w-auto" />
+            <p class="text-xs text-green-600 dark:text-green-500">Issued by AnthoLab Solutions</p>
+          </div>
+        </div>
+
+        <!-- Invalid -->
+        <div id="result-invalid" class="hidden bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-800 rounded-2xl p-6">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-red-100 dark:bg-red-900 flex items-center justify-center flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-red-600 dark:text-red-400">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </div>
+            <div>
+              <p class="font-bold text-red-700 dark:text-red-400 text-base">Certificate Not Found</p>
+              <p class="text-red-600 dark:text-red-500 text-xs">No certificate matches this number. If you believe this is an error, contact us at <a href="mailto:contact.antholab@gmail.com" class="underline">contact.antholab@gmail.com</a>.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Loading -->
+        <div id="result-loading" class="hidden bg-box-bg border border-box-border rounded-2xl p-6">
+          <div class="flex items-center gap-3">
+            <div class="w-5 h-5 border-2 border-primary border-t-transparent rounded-full animate-spin"></div>
+            <p class="text-heading-3 text-sm">Verifying certificate...</p>
+          </div>
+        </div>
+
+      </div>
+
+      <p class="text-center text-xs text-heading-3 mt-6">
+        The certificate number is printed on your training certificate issued by AnthoLab Solutions.
+        <br/>If you have any questions, contact us at
+        <a href="mailto:contact.antholab@gmail.com" class="text-primary hover:underline">contact.antholab@gmail.com</a>
+      </p>
+
+    </section>
+  </main>
+</Layout>
+
+<script>
+  const SHEET_ID = "1J_Vm14F79WXgftH3cKYiQEuY1EdZOgLHH0N90nGPFhM";
+  const SHEET_NAME = "Sheet1";
+  const API_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${SHEET_NAME}`;
+
+  const input = document.getElementById("cert-input") as HTMLInputElement;
+  const btn = document.getElementById("verify-btn") as HTMLButtonElement;
+  const result = document.getElementById("result") as HTMLDivElement;
+  const resultValid = document.getElementById("result-valid") as HTMLDivElement;
+  const resultInvalid = document.getElementById("result-invalid") as HTMLDivElement;
+  const resultLoading = document.getElementById("result-loading") as HTMLDivElement;
+
+  function showOnly(el: HTMLDivElement) {
+    result.classList.remove("hidden");
+    [resultValid, resultInvalid, resultLoading].forEach(e => e.classList.add("hidden"));
+    el.classList.remove("hidden");
+  }
+
+  async function verifyCertificate() {
+    const certId = input.value.trim().toUpperCase();
+    if (!certId) return;
+
+    showOnly(resultLoading);
+
+    try {
+      const res = await fetch(API_URL);
+      const text = await res.text();
+      const json = JSON.parse(
+        text
+          .replace("/*O_o*/\ngoogle.visualization.Query.setResponse(", "")
+          .replace(");", "")
+      );
+      const rows = json.table.rows;
+
+      const match = rows.find((row: any) => {
+        const id = row.c[0]?.v?.toString().trim().toUpperCase();
+        return id === certId;
+      });
+
+      if (match) {
+        document.getElementById("res-id")!.textContent = match.c[0]?.v || "";
+        document.getElementById("res-name")!.textContent = match.c[1]?.v || "";
+        document.getElementById("res-formation")!.textContent = match.c[2]?.v || "";
+        document.getElementById("res-date")!.textContent = match.c[3]?.v || "";
+        showOnly(resultValid);
+      } else {
+        showOnly(resultInvalid);
+      }
+    } catch (e) {
+      showOnly(resultInvalid);
+    }
+  }
+
+  btn.addEventListener("click", verifyCertificate);
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") verifyCertificate();
+  });
+
+  const params = new URLSearchParams(window.location.search);
+  const idFromUrl = params.get("id");
+  if (idFromUrl) {
+    input.value = idFromUrl;
+    verifyCertificate();
+  }
+</script>
