@@ -35,7 +35,7 @@ const navItems = [
             <div class="min-w-max inline-flex relative">
                 <a href={`${import.meta.env.BASE_URL}/${lang}`} class="relative flex items-center gap-3">
                     <img 
-                        src={`${import.meta.env.BASE_URL}/logos/logo.png`} 
+                        src={`${import.meta.env.BASE_URL}logos/logo.png`} 
                         alt="AnthoLab Solutions" 
                         class="h-30 w-auto"
                     />
@@ -95,7 +95,7 @@ const navItems = [
         const flag = document.getElementById('lang-flag');
 
         const header = document.querySelector('header');
-        const base = '/';
+        const base = '';
 
         function updateLanguage() {
             const path = window.location.pathname;
