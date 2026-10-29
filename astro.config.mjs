@@ -5,7 +5,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://antholabsolutions.com',
+  site: 'https://www.antholabsolutions.com',
   // base: '/AnthoLab',
   integrations: [sitemap()],
   vite: {
