@@ -113,12 +113,20 @@ const navItems = [
 
         btn?.addEventListener('click', () => {
             const path = window.location.pathname;
+            const isFrench = path === '/fr' || path.startsWith('/fr/');
 
-            if (path.startsWith(base + '/fr')) {
-                window.location.href = path.replace(base + '/fr', base + '/en');
+            let targetPath;
+
+            if (isFrench) {
+                targetPath = path.replace(/^\/fr(?=\/|$)/, '/en');
+            } else if (path === '/') {
+                targetPath = '/fr';
             } else {
-                window.location.href = path.replace(base + '/en', base + '/fr');
+                targetPath = path.replace(/^\/en(?=\/|$)/, '/fr');
             }
+
+            window.location.href =
+                targetPath + window.location.search + window.location.hash;
         });
     </script>
 </header>
