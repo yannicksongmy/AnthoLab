@@ -18,9 +18,12 @@ const t = translations[lang];
                 <div class="absolute  p-1 -top-4 md:-top-10 right-0 w-20 h-20 bg-gradient-to-br from-primary to-orange-400 rounded-full blur-3xl opacity-60"></div>
                 
                 <span class="absolute w-full aspect-[16/5] -skew-x-12 rounded-full bg-gradient-to-tr from-primary to-green-400 opacity-40 blur-2xl left-0 bottom-0"></span>
-                <img src={`${import.meta.env.BASE_URL}images/dev-with-c-1.webp`} alt="banner image" 
+                <img src={`${import.meta.env.BASE_URL}images/service-soft-edges.webp`} alt=""
                 width="1240" height="1385"
-                class=" w-auto left-1/2 -translate-x-1/2 absolute bottom-0 max-h-full" />
+                class="mission-slide mission-slide--first w-auto left-1/2 -translate-x-1/2 absolute bottom-0 max-h-full" />
+                <img src={`${import.meta.env.BASE_URL}images/conseil.webp`} alt=""
+                width="1240" height="1385"
+                class="mission-slide mission-slide--second w-auto left-1/2 -translate-x-1/2 absolute bottom-0 max-h-full" />
             </div>
         </div>
         <div class="flex-1 flex midmd:w-7/12 lg:w-1/2 flex-col">
@@ -50,3 +53,40 @@ const t = translations[lang];
         </div>
     </Container>
 </section>
+
+<style>
+    .mission-slide {
+        animation-duration: 42s;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+    }
+
+    .mission-slide--first {
+        animation-name: mission-slide-first;
+    }
+
+    .mission-slide--second {
+        animation-name: mission-slide-second;
+    }
+
+    @keyframes mission-slide-first {
+        0%, 47.619% { opacity: 1; }
+        50%, 97.619% { opacity: 0; }
+        100% { opacity: 1; }
+    }
+
+    @keyframes mission-slide-second {
+        0%, 47.619% { opacity: 0; }
+        50%, 97.619% { opacity: 1; }
+        100% { opacity: 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .mission-slide {
+            animation: none;
+        }
+
+        .mission-slide--first { opacity: 1; }
+        .mission-slide--second { opacity: 0; }
+    }
+</style>
