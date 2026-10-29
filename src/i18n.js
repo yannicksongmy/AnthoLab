@@ -31,7 +31,7 @@ export const translations = {
 
     about: {
       title: "Quality services, wherever you are in the world",
-      description: "Based in Tunisia, we work for students, high school students and professionals worldwide. Your success is our priority.",
+      description: "We work for students, high school students and professionals worldwide. Your success is our priority.",
       mission: "Deliver neat, rigorous work that meets your requirements..",
       vision: "Become the trusted partner of your academic and professional success."
     },
@@ -60,7 +60,7 @@ export const translations = {
 
     footer: {
       description: "Your trusted academic and professional partner.",
-      location:'Tunis, Tunisia',
+      location:'Mons, Belgium',
       copyright: "All rights reserved.",
       author: "Made by",
       site:"Distributed by",
@@ -137,7 +137,7 @@ export const translations = {
         },
         {
           category: "general",
-          question: "Do you work with clients outside Tunisia?",
+          question: "Do you work with clients outside of Belgium?",
           answer: "Yes, we collaborate remotely with clients from all over the world. Distance is no obstacle to quality collaboration."
         },
         {
@@ -298,7 +298,7 @@ export const translations = {
         },
         {
           title: "Today",
-          content: "AnthoLab Solutions is a young agency, founded with passion and determination. Based in Tunisia, we collaborate remotely with students and professionals from around the world. Our team is united around a single goal: your success."
+          content: "AnthoLab Solutions is a young agency, founded with passion and determination. Based in Belgium, we collaborate remotely with students and professionals from around the world. Our team is united around a single goal: your success."
         }
       ]
     },
@@ -368,7 +368,7 @@ export const translations = {
 
     about: {
       title: "Des services de qualité, où que vous soyez dans le monde",
-      description: "Basés en Tunisie, nous travaillons au service des étudiants, lycéens et professionnels du monde entier. Votre réussite est notre priorité.",
+      description: "Nous travaillons au service des étudiants, lycéens et professionnels du monde entier. Votre réussite est notre priorité.",
       mission: "Livrer un travail soigné, rigoureux et conforme à vos exigences.",
       vision: "Devenir le partenaire de confiance de votre réussite académique et professionnelle."
     },
@@ -397,7 +397,7 @@ export const translations = {
 
     footer: {
       description: "Votre partenaire académique et professionnel de confiance.",
-      location:'Tunis, Tunisie',
+      location:'Mons, Belgique',
       copyright: "Tous droits réservés.",
       author: "Réalisé par",
       site:"Distribué par",
@@ -475,7 +475,7 @@ export const translations = {
         },
         {
           category: "general",
-          question: "Travaillez-vous avec des clients hors de Tunisie ?",
+          question: "Travaillez-vous avec des clients hors de Belgique ?",
           answer: "Oui, nous collaborons à distance avec des clients du monde entier. La distance n'est pas un obstacle à une collaboration de qualité."
         },
         {
@@ -636,7 +636,7 @@ export const translations = {
         },
         {
           title: "Aujourd'hui",
-          content: "AnthoLab Solutions est une agence jeune, fondée avec passion et détermination. Basés en Tunisie, nous collaborons à distance avec des étudiants et professionnels du monde entier. Notre équipe est soudée autour d'un seul objectif : votre réussite."
+          content: "AnthoLab Solutions est une agence jeune, fondée avec passion et détermination. Basée en Belgique, nous collaborons à distance avec des étudiants et professionnels du monde entier. Notre équipe est soudée autour d'un seul objectif : votre réussite."
         }
       ]
     },
