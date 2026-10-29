@@ -107,20 +107,88 @@ const t = translations[lang];
 
           <!-- BUTTON -->
           <Button variant={"primary"} className="w-full">
-            <span class="text-white relative z-[5]">
+            <span data-submit-content class="text-white relative z-[5]">
               {t.features.form.submit}
             </span>
+            <span data-submit-indicator class="hidden relative z-[5] h-full w-full items-center justify-center" aria-hidden="true">
+              <svg data-submit-spinner class="hidden h-5 w-5 animate-spin text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-90" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+              <svg data-submit-success class="hidden h-7 w-7 text-green-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <svg data-submit-error class="hidden h-7 w-7 text-red-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 6l12 12M18 6L6 18"></path>
+              </svg>
+            </span>
           </Button>
-          <p id="success-msg" class="hidden text-green-500">{t.features.form.success}</p>
-          <p id="error-msg" class="hidden text-red-500">{t.features.form.error}.</p>
+          <p id="contact-success-msg" class="hidden text-green-500" role="status">{t.features.form.success}</p>
+          <div data-error-hint class="relative hidden w-fit">
+            <button id="contact-error-trigger" type="button" aria-expanded="false" aria-controls="contact-error-popover" aria-label={lang === "fr" ? "Afficher le détail de l’erreur" : "Show error details"} class="rounded-full p-1 text-red-500 transition hover:bg-red-500/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-500">
+              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="h-5 w-5">
+                <circle cx="12" cy="12" r="9"></circle>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 11v5m0-8h.01"></path>
+              </svg>
+            </button>
+            <div id="contact-error-popover" class="hidden absolute left-full top-1/2 z-20 ml-2 w-max -translate-y-1/2 whitespace-nowrap rounded-lg border border-red-500/20 bg-white p-3 text-left text-sm text-red-700 shadow-lg dark:bg-slate-900 dark:text-red-300" role="alert">
+              {t.features.form.error}.
+            </div>
+          </div>
         </form>
       </div>
     </div>
   </Container>
   <script>
     const form = document.getElementById('contact-form') as HTMLFormElement;
-    const successMsg = document.getElementById('success-msg');
-    const errorMsg = document.getElementById('error-msg');
+    const successMsg = document.getElementById('contact-success-msg');
+    const errorHint = form.querySelector('[data-error-hint]') as HTMLElement | null;
+    const errorTrigger = document.getElementById('contact-error-trigger') as HTMLButtonElement | null;
+    const errorPopover = document.getElementById('contact-error-popover');
+    const submitButton = form.querySelector('button') as HTMLButtonElement;
+    const submitContent = submitButton.querySelector('[data-submit-content]');
+    const submitIndicator = submitButton.querySelector('[data-submit-indicator]');
+    const spinner = submitButton.querySelector('[data-submit-spinner]');
+    const successIcon = submitButton.querySelector('[data-submit-success]');
+    const errorIcon = submitButton.querySelector('[data-submit-error]');
+    const originalLabel = submitButton.innerText.trim();
+
+    const hideErrorHint = () => {
+      errorPopover?.classList.add('hidden');
+      errorTrigger?.setAttribute('aria-expanded', 'false');
+    };
+
+    errorTrigger?.addEventListener('click', (event) => {
+      event.stopPropagation();
+      const isOpen = errorTrigger.getAttribute('aria-expanded') === 'true';
+      errorPopover?.classList.toggle('hidden', isOpen);
+      errorTrigger.setAttribute('aria-expanded', String(!isOpen));
+    });
+
+    document.addEventListener('click', (event) => {
+      if (!errorHint?.contains(event.target as Node)) hideErrorHint();
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') hideErrorHint();
+    });
+
+    const setButtonState = (state: 'loading' | 'success' | 'error' | 'idle') => {
+      if (submitContent) submitContent.style.display = state === 'idle' ? '' : 'none';
+      if (submitIndicator) submitIndicator.style.display = state === 'idle' ? 'none' : 'flex';
+      if (spinner) spinner.style.display = state === 'loading' ? 'block' : 'none';
+      if (successIcon) successIcon.style.display = state === 'success' ? 'block' : 'none';
+      if (errorIcon) errorIcon.style.display = state === 'error' ? 'block' : 'none';
+      submitButton.style.width = state === 'idle' ? '' : '3rem';
+      submitButton.style.height = state === 'idle' ? '' : '3rem';
+      submitButton.style.minWidth = state === 'idle' ? '' : '0';
+      submitButton.style.padding = state === 'idle' ? '' : '0';
+      submitButton.style.display = state === 'idle' ? '' : 'flex';
+      submitButton.style.alignItems = state === 'idle' ? '' : 'center';
+      submitButton.style.justifyContent = state === 'idle' ? '' : 'center';
+      submitButton.style.marginInline = state === 'idle' ? '' : 'auto';
+      submitButton.setAttribute('aria-label', state === 'idle' ? originalLabel : state === 'loading' ? 'Sending' : state === 'success' ? 'Sent successfully' : 'Sending failed');
+      submitButton.disabled = state === 'loading' || state === 'success';
+    };
 
     const serviceParam = new URLSearchParams(window.location.search).get("service");
     const serviceSelect = document.getElementById('service-select') as HTMLSelectElement | null;
@@ -133,6 +201,10 @@ const t = translations[lang];
 
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
+      successMsg?.classList.add('hidden');
+      errorHint?.classList.add('hidden');
+      hideErrorHint();
+      setButtonState('loading');
 
       const data = new FormData(form);
 
@@ -145,12 +217,25 @@ const t = translations[lang];
 
         if (response.ok) {
           form.reset();
-          successMsg.classList.remove('hidden');
+          setButtonState('success');
+          window.setTimeout(() => setButtonState('idle'), 6000);
         } else {
-          errorMsg.classList.remove('hidden');
+          errorHint?.classList.remove('hidden');
+          setButtonState('error');
+          window.setTimeout(() => {
+            hideErrorHint();
+            errorHint?.classList.add('hidden');
+            setButtonState('idle');
+          }, 6000);
         }
       } catch {
-        errorMsg.classList.remove('hidden');
+        errorHint?.classList.remove('hidden');
+        setButtonState('error');
+        window.setTimeout(() => {
+          hideErrorHint();
+          errorHint?.classList.add('hidden');
+          setButtonState('idle');
+        }, 6000);
       }
     });
   </script>
