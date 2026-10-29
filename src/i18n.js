@@ -14,6 +14,7 @@ export const translations = {
       home: "Home",
       services: "Services",
       about: "About",
+      pricing: "Pricing",
       contact: "Contact"
     },
 
@@ -37,10 +38,10 @@ export const translations = {
     },
 
     cta:{
-      t1:"Get a free",
-      t2:"Quote",
-      t3:"tailored to your budget",
-      description:"Our rates adapt to your country and your project. Describe your need and receive a response within 24 hours.",
+      t1:"Need a quote tailored to your project or preferred currency? Get your",
+      t2:"free quote",
+      t3:"",
+      description:"Tell us about your needs and receive a reply within 24 hours.",
       okay:"Request a quote on WhatsApp"
     },
 
@@ -60,7 +61,7 @@ export const translations = {
 
     footer: {
       description: "Your trusted academic and professional partner.",
-      location:'Mons, Belgium',
+      location:'Colfontaine, Belgium',
       copyright: "All rights reserved.",
       author: "Made by",
       site:"Distributed by",
@@ -243,7 +244,7 @@ export const translations = {
         },
         {
           title: "Services Offered",
-          content: "AnthoLab Solutions offers the following services: website design, writing and revision of internship reports, academic CV creation, tutoring in mathematics and computer science, Word training, and email marketing."
+          content: "AnthoLab Solutions offers the following services: website design, writing and revision of internship reports, academic CV creation, tutoring in mathematics and computer science, Word training, and application support."
         },
         {
           title: "Order and Quote",
@@ -333,6 +334,28 @@ export const translations = {
       status: "Verifying certificate...",
       text: "The certificate number is printed on your training certificate issued by AnthoLab Solutions.",
       text2: "If you have any questions, contact us at "
+    },
+
+    pricing: {
+      title: "Our rates",
+      subtitle: "Clear starting prices. The final amount depends on your project, its scope and deadlines.",
+      columns: {
+        service: "Service",
+        unit: "Pricing",
+        price: "Starting at"
+      },
+      cta: "Choose",
+      note: "2 revisions included with each project. 50% deposit at the start.",
+      quoteText: "Need a quote tailored to your project or preferred currency?",
+      quoteLink: "Get your free quote",
+      items: [
+        { key: "cv", name: "Academic CV", unit: "per document", price: "20 €" },
+        { key: "applications", name: "Application support", unit: "per application", price: "50 €" },
+        { key: "report", name: "Report proofreading and editing", unit: "per page", price: "6 €" },
+        { key: "tutoring", name: "Tutoring", unit: "per hour", price: "20 €" },
+        { key: "training", name: "Word training", unit: "per participant", price: "35 €" },
+        { key: "website", name: "Website design", unit: "per project", price: "150 €" }
+      ]
     }
   },
 
@@ -351,6 +374,7 @@ export const translations = {
       home: "Accueil",
       services: "Services",
       about: "À propos",
+      pricing: "Tarifs",
       contact: "Contact"
     },
 
@@ -374,11 +398,11 @@ export const translations = {
     },
 
     cta:{
-      t1:"Obtenez un",
-      t2:"Devis gratuit",
-      t3:"adapté à votre budget",
-      description:"Nos tarifs s'adaptent à votre pays et à votre projet. Décrivez-nous votre besoin et recevez une réponse sous 24h.",
-      okay:"Demander un devis sur WhatsApp"
+      t1:"Besoin d’un devis adapté à votre projet ou dans votre devise ? Obtenez votre",
+      t2:"devis gratuit",
+      t3:"",
+      description:"Décrivez-nous votre besoin et recevez une réponse sous 24 h.",
+      okay:"Demandez un devis sur WhatsApp"
     },
 
     features:{
@@ -397,7 +421,7 @@ export const translations = {
 
     footer: {
       description: "Votre partenaire académique et professionnel de confiance.",
-      location:'Mons, Belgique',
+      location:'Colfontaine, Belgique',
       copyright: "Tous droits réservés.",
       author: "Réalisé par",
       site:"Distribué par",
@@ -581,7 +605,7 @@ export const translations = {
         },
         {
           title: "Services proposés",
-          content: "AnthoLab Solutions propose les services suivants : conception de sites web, rédaction et révision de rapports de stage, création de CV académique, cours de soutien en mathématiques et informatique, formations sur Word, et email marketing."
+          content: "AnthoLab Solutions propose les services suivants : conception de sites web, rédaction et révision de rapports de stage, création de CV académique, cours de soutien en mathématiques et informatique, formations sur Word, et accompagnement aux candidatures."
         },
         {
           title: "Commande et devis",
@@ -671,6 +695,28 @@ export const translations = {
       status: "Vérification en cours...",
       text: "Le numéro de certificat est imprimé sur votre attestation de formation AnthoLab Solutions.",
       text2: "Pour toute question, contactez-nous à "
+    },
+
+    pricing: {
+      title: "Nos tarifs",
+      subtitle: "Des prix de départ clairs. Le montant final dépend de votre projet, de son ampleur et de vos délais.",
+      columns: {
+        service: "Service",
+        unit: "Tarification",
+        price: "À partir de"
+      },
+      cta: "Choisir",
+      note: "2 révisions incluses sur chaque projet. Acompte de 50 % au démarrage.",
+      quoteText: "Besoin d’un devis adapté à votre projet ou dans votre devise ?",
+      quoteLink: "Obtenez votre devis gratuit",
+      items: [
+        { key: "cv", name: "CV académique", unit: "par document", price: "20 €" },
+        { key: "applications", name: "Accompagnement aux candidatures", unit: "par dossier", price: "50 €" },
+        { key: "report", name: "Correction et révision de rapport", unit: "par page", price: "6 €" },
+        { key: "tutoring", name: "Cours de soutien", unit: "par heure", price: "20 €" },
+        { key: "training", name: "Formation Word", unit: "par participant", price: "35 €" },
+        { key: "website", name: "Conception de site web", unit: "par projet", price: "150 €" }
+      ]
     }
   },
 };

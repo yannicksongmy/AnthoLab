@@ -22,6 +22,10 @@ const navItems = [
         text:t.nav.about
     },
     {
+        href:`/${lang}#pricing`,
+        text:t.nav.pricing
+    },
+    {
         href:`/${lang}#contact`,
         text:t.nav.contact
     },
@@ -37,7 +41,7 @@ const navItems = [
                     <img 
                         src={`${import.meta.env.BASE_URL}logos/logo.png`} 
                         alt="AnthoLab Solutions" 
-                        class="h-30 w-auto"
+                        class="h-auto w-[36vw] max-w-[180px] sm:h-30 sm:w-auto"
                     />
                     <!--<div class="inline-flex text-lg font-semibold text-heading-1">
                         Antho<span class="text-primary">Lab</span>
@@ -55,7 +59,7 @@ const navItems = [
                 </ul>
 
                 <div class="lg:min-w-max flex items-center sm:w-max w-full pb-6 lg:pb-0 border-b border-box-bg lg:border-0 px-6 lg:px-0">
-                    <BtnLink text={t.hero.button2} href={`/${lang}#cta`}, className="flex justify-center w-full sm:w-max" variant="primary"/>
+                    <BtnLink text={t.hero.button2} href={`/${lang}#pricing`}, className="flex justify-center w-full sm:w-max" variant="primary"/>
                 </div>
             </div>
 
@@ -80,7 +84,7 @@ const navItems = [
                     <span class="sr-only">switch theme</span>
                 </button>
                 
-                <button data-toggle-nav data-open-nav="false" class="lg:hidden lg:invisible outline-none w-7 h-auto flex flex-col relative">
+                <button data-toggle-nav data-open-nav="false" class="lg:hidden lg:invisible outline-none w-7 h-auto shrink-0 flex flex-col relative">
                     <span id="line1" class="w-6 h-0.5 rounded-full bg-heading-2 transition-all duration-300 ease-linear"></span> 
                     <span id="line2" class="w-6 origin-center  mt-1 h-0.5 rounded-ful bg-heading-2 transition-all duration-300 ease-linear"></span> 
                     <span id="line3" class="w-6 mt-1 h-0.5 rounded-ful bg-heading-2 transition-all duration-300 ease-linear"></span>                         

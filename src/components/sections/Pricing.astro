@@ -1,0 +1,72 @@
+---
+import Container from "../shared/Container.astro";
+import Title from "../shared/Title.astro";
+import Paragraph from "../shared/Paragraph.astro";
+import BtnLink from "../shared/BtnLink.astro";
+import { translations } from "../../i18n";
+
+const { lang = "en" } = Astro.props;
+const t = translations[lang];
+---
+
+<section id="pricing">
+  <Container className="space-y-6 md:space-y-8">
+    <div class="text-center max-w-3xl mx-auto space-y-4">
+      <Title>{t.pricing.title}</Title>
+      <Paragraph>{t.pricing.subtitle}</Paragraph>
+    </div>
+
+    <div class="rounded-2xl border border-box-border bg-box-bg p-3 shadow-lg shadow-box-shadow sm:overflow-hidden sm:p-0">
+      <table class="w-full border-collapse text-left">
+        <thead class="hidden bg-box-bg sm:table-header-group">
+          <tr>
+            <th scope="col" class="px-4 py-4 text-sm font-semibold text-heading-1">{t.pricing.columns.service}</th>
+            <th scope="col" class="px-4 py-4 text-sm font-semibold text-heading-1">{t.pricing.columns.unit}</th>
+            <th scope="col" class="px-4 py-4 text-sm font-semibold text-heading-1">{t.pricing.columns.price}</th>
+            <th scope="col" class="px-4 py-4"><span class="sr-only">{t.pricing.cta}</span></th>
+          </tr>
+        </thead>
+        <tbody class="block sm:table-row-group">
+          {t.pricing.items.map((item) => (
+            <tr class="mb-3 grid grid-cols-2 gap-x-4 gap-y-3 rounded-xl border border-box-border p-4 last:mb-0 sm:mb-0 sm:table-row sm:rounded-none sm:border-x-0 sm:border-b-0 sm:border-t sm:p-0">
+              <td class="col-span-2 block text-sm font-semibold text-heading-1 sm:table-cell sm:px-4 sm:py-4 sm:font-medium">
+                <span class="mb-1 block text-xs font-normal text-heading-3 sm:hidden">{t.pricing.columns.service}</span>
+                {item.name}
+              </td>
+              <td class="block text-sm text-heading-2 sm:table-cell sm:px-4 sm:py-4">
+                <span class="mb-1 block text-xs text-heading-3 sm:hidden">{t.pricing.columns.unit}</span>
+                {item.unit}
+              </td>
+              <td class="block text-sm font-semibold text-heading-1 sm:table-cell sm:px-4 sm:py-4">
+                <span class="mb-1 block text-xs font-normal text-heading-3 sm:hidden">{t.pricing.columns.price}</span>
+                {item.price}
+              </td>
+              <td class="col-span-2 block sm:table-cell sm:px-4 sm:py-3">
+                <BtnLink
+                  text={t.pricing.cta}
+                  href={`?service=${item.key}#contact`}
+                  className="flex w-full justify-center !px-3 !py-2 text-sm sm:w-auto"
+                  variant="primary"
+                />
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="-mt-2 flex w-full items-start gap-3 rounded-xl border border-amber-400/40 bg-amber-400/10 px-4 py-3 text-left">
+      <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="mt-0.5 h-5 w-5 shrink-0 text-amber-500">
+        <circle cx="12" cy="12" r="9" />
+        <path stroke-linecap="round" d="M12 11v5m0-8h.01" />
+      </svg>
+      <p class="text-base italic text-heading-2">{t.pricing.note}</p>
+    </div>
+    <!--<p class="text-center text-sm text-heading-3">
+      {t.pricing.quoteText}
+      <a href="?service=quote#contact" class="ml-1 font-semibold text-primary underline transition hover:opacity-80">
+        {t.pricing.quoteLink}
+      </a>
+    </p>-->
+  </Container>
+</section>
