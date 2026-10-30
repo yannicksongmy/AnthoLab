@@ -48,6 +48,9 @@ export const translations = {
     features:{
       title: "Contact us",
       text:"We collaborate remotely on your projects, anywhere in the world",
+      unavailable: "The contact form is currently unavailable. Please check back later, or contact us on",
+      whatsapp: "WhatsApp",
+      emailIntro: "or by email at",
       form:{
         nom:"Your name",
         mail:"Your email",
@@ -408,6 +411,9 @@ export const translations = {
     features:{
       title: "Contactez-nous",
       text:"Nous collaborons à distance sur vos projets, partout dans le monde",
+      unavailable: "Le formulaire de contact est actuellement indisponible. Merci de revenir un peu plus tard, ou contactez-nous sur",
+      whatsapp: "WhatsApp",
+      emailIntro: "ou par e-mail à",
       form:{
         nom:"Votre nom",
         mail:"Votre mail",
